@@ -31,7 +31,7 @@ public class MemberRepository {
 
     public Optional<Member> findByLoginId(String loginId) {
         return findAll().stream()
-                .filter(member -> member.getLoginId().equals(loginId))
+                .filter((member) -> member.getLoginId() == loginId)
                 .findFirst();
     }
 

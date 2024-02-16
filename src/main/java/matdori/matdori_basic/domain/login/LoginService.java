@@ -16,4 +16,8 @@ public class LoginService {
     public LoginService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
+
+//    public Member login(String loginId, String password) {
+
+//    }
 }
