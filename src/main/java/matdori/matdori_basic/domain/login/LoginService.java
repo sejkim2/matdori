@@ -17,7 +17,12 @@ public class LoginService {
         this.memberRepository = memberRepository;
     }
 
-//    public Member login(String loginId, String password) {
-
-//    }
+    public Member login(String loginId, String password) {
+        Optional<Member> memberOptional = memberRepository.findByLoginId(loginId);
+        Member member = memberOptional.get();
+        if (member.getPassword().equals(password))
+            return member;
+        else
+            return null;
+    }
 }

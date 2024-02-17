@@ -71,27 +71,29 @@
 <body>
 <div class="container">
     <h1>로그인</h1>
-    <table>
-        <tr>
-            <th>항목</th>
-            <th>입력</th>
-        </tr>
-        <tr>
-            <td>로그인 아이디</td>
-            <td><input type="text" name="loginId"></td>
-        </tr>
-        <tr>
-            <td>닉네임</td>
-            <td><input type="text" name="nickName"></td>
-        </tr>
-        <tr>
-            <td>비밀번호</td>
-            <td><input type="password" name="password"></td>
-        </tr>
-    </table>
-    <div style="margin-top: 20px;">
-        <input type="submit" value="로그인">
-    </div>
+    <form method="post">
+        <table>
+            <tr>
+                <th>항목</th>
+                <th>입력</th>
+            </tr>
+            <tr>
+                <td>로그인 아이디</td>
+                <td><input type="text" name="loginId"></td>
+            </tr>
+            <tr>
+                <td>닉네임</td>
+                <td><input type="text" name="nickName"></td>
+            </tr>
+            <tr>
+                <td>비밀번호</td>
+                <td><input type="password" name="password"></td>
+            </tr>
+        </table>
+        <div style="margin-top: 20px;">
+            <input type="submit" value="로그인">
+        </div>
+    </form>
 </div>
 </body>
 </html>
