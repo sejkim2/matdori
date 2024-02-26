@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Player List</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        /* 새로운 CSS 스타일 추가 */
+        .player-link {
+            color: blue;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        .add-button {
+            float: right;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<h1>Player List</h1>
+<!-- 선수 등록 버튼 추가 -->
+<a th:href="@{/players/add}" class="add-button">선수 등록</a>
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Back Number</th>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Salary</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="player : ${list}">
+        <!-- player 이름을 클릭할 때 players/{playerId} 함수를 호출하도록 변경 -->
+        <td><a th:href="@{'/players/' + ${player.id}}" class="player-link" th:text="${player.id}"></a></td>
+        <td th:text="${player.backNumber}"></td>
+        <td><a th:href="@{'/players/' + ${player.id}}" class="player-link" th:text="${player.name}"></a></td>
+        <td th:text="${player.position}"></td>
+        <td th:text="${player.salary}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

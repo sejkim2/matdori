@@ -1,11 +1,13 @@
 package matdori.matdori_basic.web.member;
 
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import matdori.matdori_basic.domain.member.Member;
 import matdori.matdori_basic.domain.member.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,7 +33,11 @@ public class MemberController {
     }
 
     @PostMapping("/add")
-    public String save(@ModelAttribute("member") Member member) {
+    public String save(@Valid @ModelAttribute("member") Member member,
+                       BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "members/addMemberForm";
+        }
         memberRepository.save(member);
         return "redirect:/";
     }

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Player Registration</title>
+    <style>
+        .form-container {
+            width: 50%;
+            margin: auto;
+        }
+        .form-row {
+            margin-bottom: 10px;
+        }
+        .form-label {
+            width: 150px;
+            display: inline-block;
+            text-align: right;
+            margin-right: 20px;
+        }
+        .form-input {
+            width: calc(100% - 200px);
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .btn-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .btn-cancel {
+            background-color: #dc3545;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<div class="form-container">
+    <h1>Player Registration</h1>
+    <form action="#" method="post" id="playerForm">
+        <div class="form-row">
+            <label for="backNumber" class="form-label">Back Number:</label>
+            <input type="text" id="backNumber" name="backNumber" class="form-input">
+        </div>
+        <div class="form-row">
+            <label for="name" class="form-label">Name:</label>
+            <input type="text" id="name" name="name" class="form-input">
+        </div>
+        <div class="form-row">
+            <label for="position" class="form-label">Position:</label>
+            <input type="text" id="position" name="position" class="form-input">
+        </div>
+        <div class="form-row">
+            <label for="salary" class="form-label">Salary:</label>
+            <input type="text" id="salary" name="salary" class="form-input">
+        </div>
+        <div class="btn-container">
+            <button type="submit" class="btn">등록</button>
+            <a href="/players" class="btn btn-cancel">취소</a>
+        </div>
+    </form>
+</div>
+</body>
+</html>
