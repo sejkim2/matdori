@@ -67,5 +67,11 @@
     <a th:href="@{'/players/' + ${player.id} + '/edit'}" class="btn">Edit</a>
     <a th:href="@{/players}" class="btn">List</a>
 </div>
+
+<!-- Add message if status is true -->
+<div th:if="${param.status}">
+    <p>등록 완료!</p>
+</div>
+
 </body>
 </html>

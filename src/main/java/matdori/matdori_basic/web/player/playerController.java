@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -24,7 +25,7 @@ public class playerController {
     }
 
     @GetMapping
-    public String showPlayerList(Model model) {
+    public String players(Model model) {
         List<Player> list = store.findAll();
         model.addAttribute("list", list);
         return "players/list";
@@ -43,9 +44,13 @@ public class playerController {
     }
 
     @PostMapping("/add")
-    public String addPlayer(@ModelAttribute("player") Player player) {
-        store.save(player);
-        return "redirect:/players";
+    public String addPlayer(@ModelAttribute("player") Player player,
+                            RedirectAttributes redirectAttributes) {
+
+        Player savedPlayer = store.save(player);
+        redirectAttributes.addAttribute("playerId", savedPlayer.getId());
+        redirectAttributes.addAttribute("status", true);
+        return "redirect:/players/{playerId}";
     }
 
     @GetMapping("{playerId}/edit")
